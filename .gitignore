@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.idea/
 build/
 develop-eggs/
 dist/
@@ -54,6 +55,7 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
+settings.py
 
 # Flask stuff:
 instance/
