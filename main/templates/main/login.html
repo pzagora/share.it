@@ -1,12 +1,14 @@
 {% extends "main/header.html" %}
 
 {% block content %}
-   <h2>Sign up</h2>
-      <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Sign up</button>
-      </form>
+    <div class="container">
+       <h2>Login - WIP</h2>
+          <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign up</button>
+          </form>
 
-    If you don't already have an account, <a href="/register"><strong>login</strong></a> instead.
+        If you don't already have an account, <a href="/register"><strong>login</strong></a> instead.
+    </div>
 {% endblock %}
