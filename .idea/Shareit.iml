@@ -13,17 +13,16 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$">
-      <excludeFolder url="file://$MODULE_DIR$/fsdfs" />
-    </content>
-    <orderEntry type="jdk" jdkName="Python 3.6 (django_project)" jdkType="Python SDK" />
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Django Lib" level="project" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../Shareit\templates" />
+        <option value="$MODULE_DIR$/main/templates" />
       </list>
     </option>
   </component>
