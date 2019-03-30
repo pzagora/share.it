@@ -9,7 +9,7 @@ from .forms import NewUserForm
 
 
 def homepage(request):
-    return HttpResponse("Hello World!")
+    return render(request, "main/home.html")
 
 
 def register(request):

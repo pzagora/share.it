@@ -1,22 +1,58 @@
+{% load static %}
 <head>
-    {% load static %}
-    <!-- Prism CSS -->
-    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link href="{% static "main/css/materialize.css" %}" rel="stylesheet">
-    <!-- Compiled and minified JavaScript for Materialize CSS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
+
+  <!-- Compiled and minified JavaScript -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body{
+      background: url("{% static 'img/bg.jpg' %}");
+      background-size: cover;
+    }
+  </style>
+
+  <script>
+    (function($){
+    $(function(){
+
+      $('.sidenav').sidenav();
+
+    }); // end of document ready
+  })(jQuery); // end of jQuery name space
+  </script>
 </head>
 <body>
 
 {% include "main/includes/navbar.html" %}
 {% include "main/includes/messages.html" %}
 
-  <div class="container">
+  <!-- <div class="container"> -->
   <br>
     {% block content %}
     {% endblock %}
-  </div>
+  <!-- </div> -->
+
+
+    <ul id="slide-out" class="sidenav">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="{% static 'img/office.jpg' %}">
+        </div>
+        <a href="#"><img class="circle" src="{% static 'img/yuna.jpg' %}"></a>
+        <a href="#"><span class="white-text name">John Doe</span></a>
+        <a href="#"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#">Third Link With Waves</a></li>
+    </ul>
 </body>
 
-<script src="{% static 'tinymce/js/prism.js' %}"></script>
+<!-- <script src="{% static 'tinymce/js/prism.js' %}"></script> -->
