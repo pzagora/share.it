@@ -3,10 +3,11 @@
 {% block content %}
 <head>
   <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/materialize.css">
 
   <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="js/materialize.min.js"></script>
 
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,6 +17,16 @@
       background-size: cover;
     }
   </style>
+
+  <script>
+    (function($){
+    $(function(){
+
+      $('.sidenav').sidenav();
+
+    }); // end of document ready
+  })(jQuery); // end of jQuery name space
+  </script>
 </head>
 <body>
   <header>
@@ -25,12 +36,29 @@
           <li><a href="#" class="btn-floating blue">
             <i class="material-icons right">settings</i>
           </a></li>
-          <li><a href="#" class="btn-floating blue">
+          <li><a href="#" data-target="slide-out"  class="sidenav-trigger btn-floating blue">
             <i class="material-icons right">perm_identity</i>
           </a></li>
         </ul>
     </nav>
   </header>
+
+    <ul id="slide-out" class="sidenav">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="img/office.jpg">
+        </div>
+        <a href="#"><img class="circle" src="img/yuna.jpg"></a>
+        <a href="#"><span class="white-text name">John Doe</span></a>
+        <a href="#"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#">Third Link With Waves</a></li>
+    </ul>
+
     <div class="container">
       <div class="row grey">
         <div class="col l1 m2 s2 center-align">
