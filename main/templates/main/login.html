@@ -1,14 +1,12 @@
 {% extends "main/header.html" %}
 
 {% block content %}
-    <div class="container">
-       <h2>Login - WIP</h2>
-          <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Sign up</button>
-          </form>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <br>
+        <button class="btn" style="background-color: #0277bd; color: #1a237e" type="submit">login</button>
+    </form>
 
-        If you don't already have an account, <a href="/register"><strong>login</strong></a> instead.
-    </div>
+    If you don't already have an account, <a href="/register"><strong>login</strong></a> instead.
 {% endblock %}
