@@ -1,13 +1,76 @@
-{% extends 'main/header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="register-body">
+     <!--NAVBAR------------------------------------------------------------------------------------------------------>
+    <!--NAVBAR-MAIN------------------------------------------------------------------------------------------------------>
+    <nav class="nav-extended indigo accent-3">
+            <div class="nav-wrapper container">
+                <a href="index.html" class="brand-logo">share.it</a>
+                <ul class="right">
+                    <li class="hide-on-small-only"><a href="login.html">Login</a></li>
+                    <li class="hide-on-small-only"><a href="register.html">Register</a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+                </ul>
+            </div>
+      
+        </nav>
+        <!--NAVBAR-DROPDOWN------------------------------------------------------------------------------------------------------>
+        <ul id="dropdown1" class="dropdown-content">
+                <li class="hide-on-med-and-up indigo-text text-accent-3"><a href="login.html">Login</a></li>
+                <li class="hide-on-med-and-up"><a href="register.html">Register</a></li>
+                <li><a href="#!">one</a></li>
+                <li><a href="#!">two</a></li>
+                <li class="divider"></li>
+                <li><a href="#!">three</a></li>
+        </ul>
+        <div class="container row">
+                <form class="col s12 m6 l4 offset-l4 offset-m3 form-box center-align">
+                                <i class="large material-icons indigo-text text-accent-3 form-hero-icon">person_outline</i>
 
-{% block content %}
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input id="email" type="email" class="validate" required>
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input id="password" type="password" class="validate" minlength="6" required>
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s6 m6 l6 right">
+                        <button class="btn btn-large btn-register waves-effect waves-light indigo accent-3" type="submit" name="action">Login
+                        <i class="material-icons right">done</i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+  
+   </div>   
 
-    <div class="container">
-        <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Login</button>
-        </form>
-        Don't have an account? <a href="/register" target="blank"><strong>register here</strong></a>!
-    </div>
-{% endblock %}
+
+   
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+         $(document).ready(function(){
+    $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
+    $('input#input_text, textarea#textarea2').characterCounter();
+    $('.dropdown-trigger').dropdown();
+
+  });   
+</script>
+</body>
+</html>
