@@ -4,11 +4,16 @@ from django.contrib.auth.models import User
 
 
 class NewUserForm(UserCreationForm):
-    email = forms.EmailField(required=True)
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'input'}))
+    password2 = forms.CharField(label="Repeat password", widget=forms.PasswordInput(attrs={'class': 'input'}))
 
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2")
+        fields = ['username', 'email']
+        widgets = {
+            'username': forms.TextInput(attrs={'class': 'input', 'autofocus': True}),
+            'email': forms.EmailInput(attrs={'class': 'input', 'required': True})
+        }
 
     def save(self, commit=True):
         user = super(NewUserForm, self).save(commit=False)

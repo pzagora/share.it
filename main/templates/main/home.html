@@ -16,9 +16,14 @@
         <div class="nav-wrapper container">
             <a href="#!" class="brand-logo">share.it</a>
             <ul class="right">
-                <li class="hide-on-small-only"><a href="login.html">Login</a></li>
-                <li class="hide-on-small-only"><a href="register.html">Register</a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+             {% if user.is_authenticated %}
+            <li><a href="/account">{{ user.username }}</a></li>
+                 <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
+                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+            {% else %}
+                <li class="hide-on-small-only"><a href="/register">Register</a></li>
+                <li class="hide-on-small-only"><a href="/login">Login</a></li>
+            {% endif %}
             </ul>
         </div>
     <!--NAVBAR-SECONDARY------------------------------------------------------------------------------------------------------>

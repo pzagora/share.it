@@ -51,3 +51,9 @@ def login_request(request):
     return render(request,
                   "main/login.html",
                   {"form": form})
+
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully")
+    return redirect("main:homepage")
