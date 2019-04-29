@@ -2,10 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
+from .models import TopicInformation, TopicCategory
 
 
 def homepage(request):
-    return render(request, "main/home.html")
+    return render(request, "main/home.html",
+                  {"information": TopicInformation.objects.all, "category": TopicCategory.objects.all})
 
 
 def register(request):
