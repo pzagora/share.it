@@ -1,13 +1,86 @@
-{% extends 'main/header.html' %}
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="register-body">
+     <!--NAVBAR------------------------------------------------------------------------------------------------------>
+    <!--NAVBAR-MAIN------------------------------------------------------------------------------------------------------>
+    <nav class="nav-extended indigo accent-3">
+            <div class="nav-wrapper container">
+                <a href="/" class="brand-logo">share.it</a>
+                <ul class="right">
+                    <li class="hide-on-small-only"><a href="/login">Login</a></li>
+                    <li class="hide-on-small-only"><a href="/register">Register</a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+                </ul>
+            </div>
+      
+        </nav>
+        <!--NAVBAR-DROPDOWN------------------------------------------------------------------------------------------------------>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="register-body">
+     <!--NAVBAR------------------------------------------------------------------------------------------------------>
+    <!--NAVBAR-MAIN------------------------------------------------------------------------------------------------------>
+        <!--NAVBAR-DROPDOWN------------------------------------------------------------------------------------------------------>
 {% block content %}
-
     <div class="container">
-        <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Login</button>
-        </form>
-        Don't have an account? <a href="/register" target="blank"><strong>register here</strong></a>!
+        <div class="columns is-mobile">
+            <div class="column is-half is-offset-one-quarter">
+                <div class="content"><h2>Login</h2></div>
+                <form method="post" class="col s12 m6 l4 offset-l4 offset-m3 form-box center-align">
+                                <i class="large material-icons indigo-text text-accent-3 form-hero-icon">person_outline</i>
+                    {% csrf_token %}
+                    {% for non_field_error in form.non_field_errors %}
+                        <p class="help is-danger">{{ non_field_error }}</p>
+                    {% endfor %}
+                    {% for field in form %}
+                        <div class="input-field col s12 m12 l12">
+                            <label for="{{ field.id_for_label }}" class="label">{{ field.html_name }}</label>
+                            {{ field }}
+                        {% for error in field.errors %}
+                            <p class="help is-danger">{{ error }}</p>
+                        {% endfor %}
+                        </div>
+                    {% endfor %}
+                        <button class="btn btn-large btn-register waves-effect waves-light indigo accent-3" type="submit" name="action">Login
+                        <i class="material-icons right">done</i>
+                        </button>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+         $(document).ready(function(){
+    $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
+    $('input#input_text, textarea#textarea2').characterCounter();
+    $('.dropdown-trigger').dropdown();
+
+  });
+</script>
+</body>
+</html>
