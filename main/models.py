@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
 # Create your models here.
 
 
@@ -21,7 +22,7 @@ class TopicCategory(models.Model):
     topic_image = models.ImageField(upload_to='profile_image', blank=True)
     datetime = models.DateTimeField("date published", default=datetime.now())
     topic_category_key = models.ForeignKey(TopicInformation, default=1, verbose_name="Topics", on_delete=models.SET_DEFAULT)
-
+    author = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     class Meta:
         verbose_name_plural = "Categories"
