@@ -16,6 +16,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+            human = True
             return redirect("main:homepage")
 
         else:
@@ -26,7 +27,7 @@ def register(request):
                           template_name="main/register.html",
                           context={"form": form})
 
-    form = UserCreationForm
+    form = UserCreationForm()
     return render(request=request,
                   template_name="main/register.html",
                   context={"form": form})

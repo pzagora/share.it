@@ -16,9 +16,14 @@
         <div class="nav-wrapper container">
             <a href="/" class="brand-logo">share.it</a>
             <ul class="right">
-                <li class="hide-on-small-only"><a href="/login">Login</a></li>
-                <li class="hide-on-small-only"><a href="/register">Register</a></li>
-                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+                {% if user.is_authenticated %}
+                        <li><a href="/account">{{ user.username }}</a></li>
+                             <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
+                             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+                        {% else %}
+                            <li class="hide-on-small-only"><a href="/register">Register</a></li>
+                            <li class="hide-on-small-only"><a href="/login">Login</a></li>
+                {% endif %}
             </ul>
         </div>
 
@@ -46,7 +51,8 @@
                     {% endfor %}
                         <button class="btn btn-large btn-register waves-effect waves-light indigo accent-3" type="submit" name="action">Register
                         <i class="material-icons right">done</i>
-                        </button>                </form>
+                        </button>
+                 </form>
             </div>
         </div>
     </div>
@@ -61,6 +67,18 @@
     $('input#input_text, textarea#textarea2').characterCounter();
     $('.dropdown-trigger').dropdown();
   });
+</script>
+
+<script>
+    $('.js-captcha-refresh').click(function(){
+    $form = $(this).parents('form');
+
+    $.getJSON($(this).data('url'), {}, function(json) {
+        // This should update your captcha image src and captcha hidden input
+    });
+
+    return false;
+});
 </script>
 </body>
 </html>

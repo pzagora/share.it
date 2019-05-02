@@ -16,14 +16,14 @@
         <div class="nav-wrapper container">
             <a href="#!" class="brand-logo">share.it</a>
             <ul class="right">
-             {% if user.is_authenticated %}
-            <li><a href="/account">{{ user.username }}</a></li>
-                 <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
-                 <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
-            {% else %}
-                <li class="hide-on-small-only"><a href="/register">Register</a></li>
-                <li class="hide-on-small-only"><a href="/login">Login</a></li>
-            {% endif %}
+                    {% if user.is_authenticated %}
+                    <li><a href="/account">{{ user.username }}</a></li>
+                         <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
+                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
+                    {% else %}
+                        <li class="hide-on-small-only"><a href="/register">Register</a></li>
+                        <li class="hide-on-small-only"><a href="/login">Login</a></li>
+             {% endif %}
             </ul>
         </div>
     <!--NAVBAR-SECONDARY------------------------------------------------------------------------------------------------------>
@@ -40,8 +40,8 @@
     </nav>
     <!--NAVBAR-DROPDOWN------------------------------------------------------------------------------------------------------>
     <ul id="dropdown1" class="dropdown-content">
-            <li class="hide-on-med-and-up indigo-text text-accent-3"><a href="login.html">Login</a></li>
-            <li class="hide-on-med-and-up"><a href="register.html">Register</a></li>
+            <li class="hide-on-med-and-up indigo-text text-accent-3"><a href="/login">Login</a></li>
+            <li class="hide-on-med-and-up"><a href="/register">Register</a></li>
             <li><a href="#!">one</a></li>
             <li><a href="#!">two</a></li>
             <li class="divider"></li>
@@ -61,23 +61,19 @@
           <!-- https://youtu.be/LDU_Txk06tM -->
             {% for cat in category %}
             <div class="col s12 m6 l4">
-                <h4 class="center">Section</h4>
+                <h4 class="center">{{ cat.topic_category }}</h4>
                 <ul class = "collapsible popout" data-collapsible = "accordion">
                     <li>
                         <div class = "collapsible-header">
                             <div class="row">
-                                <div class="col s12 m12 l12 post-author"><a href="#" class="">User</a> posted x {{ cat.datetime }}</div>
-                                <div class="col s12 m12 l12">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, possimus?</div>
+                                <div class="col s12 m12 l12 post-author"><a href="#" class="">{{ cat.author }}</a> posted x {{ cat.datetime }}</div>
+                                 <div class="col s12 m12 l12">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, possimus?</div>
                             </div>
                         </div>
                         <div class = "collapsible-body">
                             <p class="bottom-border">tekst posta :<</p>
                             <ul class = "collection">
                                 <li class = "collection-item"><div class="post-author"><a href="#" class="">User1</a>posted x  days ago</div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, laudantium cum nobis perferendis fuga aliquam et enim hic molestiae excepturi omnis odio iure aperiam sint ipsa obcaecati voluptates voluptatum ratione!</li>
-                                <li class = "collection-item"><div class="post-author"><a href="#" class="">User2</a>posted x  days ago</div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, laudantium cum nobis perferendis fuga aliquam et enim hic molestiae excepturi omnis odio iure aperiam sint ipsa obcaecati voluptates voluptatum ratione!</li>
-                                <li class = "collection-item"><div class="post-author"><a href="#" class="">User3</a>posted x  days ago</div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, laudantium cum nobis perferendis fuga aliquam et enim hic molestiae excepturi omnis odio iure aperiam sint ipsa obcaecati voluptates voluptatum ratione!</li>
-                                <li class = "collection-item"><div class="post-author"><a href="#" class="">User4</a>posted x  days ago</div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, laudantium cum nobis perferendis fuga aliquam et enim hic molestiae excepturi omnis odio iure aperiam sint ipsa obcaecati voluptates voluptatum ratione!</li>
-                                <li class = "collection-item"><div class="post-author"><a href="#" class="">User5</a>posted x  days ago</div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, laudantium cum nobis perferendis fuga aliquam et enim hic molestiae excepturi omnis odio iure aperiam sint ipsa obcaecati voluptates voluptatum ratione!</li>
                                 <li class = "collection-item">
                                     <form class="">
                                         <div class="input-field">
@@ -121,8 +117,6 @@
     $('input#input_text, textarea#textarea2').characterCounter();
     $(".dropdown-trigger").dropdown();
   });
-  
-  
 </script>
 </body>
 </html>
