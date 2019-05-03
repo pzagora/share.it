@@ -17,7 +17,7 @@
             <a href="/" class="brand-logo">share.it</a>
             <ul class="right">
                 {% if user.is_authenticated %}
-                        <li><a href="/account">{{ user.username }}</a></li>
+                        <li><a href="/edit">{{ user.username }}</a></li>
                              <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
                              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
                         {% else %}
