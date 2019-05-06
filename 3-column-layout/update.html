@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="login-body body-background">
+<body class="update-body body-background">
      <!--NAVBAR------------------------------------------------------------------------------------------------------>
     <!--NAVBAR-MAIN------------------------------------------------------------------------------------------------------>
     <nav class="nav-extended indigo accent-3">
@@ -34,14 +34,22 @@
         </ul>
         <div class="container row">
                 <form class="col s12 m10 l6 offset-l3 offset-m1 form-box center-align">
-                                <i class="large material-icons indigo-text text-accent-3 form-hero-icon">person_outline</i>
+                                <i class="large material-icons indigo-text text-accent-3 form-hero-icon">create</i>
 
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <input id="username" type="text" class="validate">
+                            <label for="username">Username</label>
+                        </div>
+                    </div>
+                    
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input id="email" type="email" class="validate" required>
                             <label for="email">Email</label>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="input-field col s12 m12 l12">
                             <input id="password" type="password" class="validate" minlength="6" required>
@@ -49,8 +57,8 @@
                         </div>
                     </div>
                     <div class="input-field col s6 m6 l6 right">
-                        <button class="btn btn-large btn-register waves-effect waves-light indigo accent-3" type="submit" name="action">Login
-                        <i class="material-icons right">done</i>
+                        <button class="btn btn-large btn-register waves-effect waves-light indigo accent-3" type="submit" name="action">Update
+                        <i class="material-icons right">chevron_right</i>
                         </button>
                     </div>
                 </div>

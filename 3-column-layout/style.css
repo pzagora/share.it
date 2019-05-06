@@ -32,16 +32,25 @@
 .dropdown-content li > a, .dropdown-content li > span {
     color: #3d5afe !important;
 }
-
 .register-body{
     background-image: url('https://images.pexels.com/photos/2060298/pexels-photo-2060298.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920');
+}
+
+.login-body{
+    background-image: url('https://images.pexels.com/photos/929670/pexels-photo-929670.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920');
+}
+
+.update-body{
+    background-image: url('https://images.pexels.com/photos/2006745/pexels-photo-2006745.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920');
+}
+.body-background{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(40px);
     height: 100vh;
-  
 }
+
 .col > .btn{
     width: 100%;
 }
