@@ -1,23 +1,36 @@
-from django.shortcuts import render
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, HttpResponseRedirect
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
-from .forms import NewUserForm
-from django.contrib.auth.forms import AuthenticationForm
-# Create your views here.
+from .models import TopicInformation, TopicCategory
+from .forms import NewUserForm, EditProfileForm
 
 
 def homepage(request):
-    return render(request, "main/home.html")
+    return render(request, "main/home.html",
+                  {"information": TopicInformation.objects.all, "category": TopicCategory.objects.all})
 
 
 def register(request):
-    form = UserCreationForm
-    return render(request,
-                  "main/register.html",
-                  {"form": form})
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("main:homepage")
+
+        else:
+            for msg in form.error_messages:
+                print(form.error_messages[msg])
+
+            return render(request=request,
+                          template_name="main/register.html",
+                          context={"form": form})
+
+    form = NewUserForm
+    return render(request=request,
+                  template_name="main/register.html",
+                  context={"form": form})
 
 
 def login_request(request):
@@ -38,4 +51,37 @@ def login_request(request):
     form = AuthenticationForm()
     return render(request,
                   "main/login.html",
-                   {"form": form})
+                  {"form": form})
+
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully")
+    return redirect("main:homepage")
+
+
+def edit(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            messages.info(request, f"You have successfully updated your profile")
+            return redirect("main:homepage")
+        else:
+            form = EditProfileForm(instance=request.user)
+            return render(request=request,
+                          template_name="main/edit.html",
+                          context={"form": form})
+    else:
+        form = EditProfileForm(instance=request.user)
+        return render(request=request,
+                      template_name="main/edit.html",
+                      context={"form": form})
+
+
+
+
+
+
+
