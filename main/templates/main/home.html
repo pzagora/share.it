@@ -27,7 +27,8 @@
             <ul class="right">
                     {% if user.is_authenticated %}
                     <li><a href="/edit">{{ user.username }}</a></li>
-                         <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
+                        <img src="{{ user.userprofile.profile_image.url}}" width="50">
+                        <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
                         <li class="hide-on-small-only"><a href="/edit">Edit</a></li>
                          <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
                     {% else %}
@@ -62,33 +63,44 @@
     <!--TEXT-HEADER------------------------------------------------------------------------------------------------------>
         <div class="row bottom-border">
             <div class="col s12 m12 l12">
-                <h3 class="section-header">Sample text</h3>
+                <h3 class="section-header">Categories</h3>
             </div>
         </div>
     <!--SINGLE ROW OF TOPICS------------------------------------------------------------------------------------------------------>
         <div class="row">
     <!--ONE OF 3 ROWS------------------------------------------------------------------------------------------------------>
           <!-- https://youtu.be/LDU_Txk06tM -->
-            {% for cat in category %}
+            {% for cat in comment_list %}
             <div class="col s12 m6 l4">
                 <h4 class="center">{{ cat.topic_category }}</h4>
                 <ul class = "collapsible popout" data-collapsible = "accordion">
                     <li>
+
                         <div class = "collapsible-header">
                             <div class="row">
-                                <div class="col s12 m12 l12 post-author"><a href="#" class="">{{ cat.author }}</a> posted x {{ cat.datetime }}</div>
-                                 <div class="col s12 m12 l12">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere, possimus?</div>
+                                <div class="col s12 m12 l12 post-author"><a href="#" class="">{{ cat.author }} </a> posted x {{ cat.datetime }}</div>
+                                 <div class="col s12 m12 l12">Topic: {{ cat.topic_title }}</div>
                             </div>
                         </div>
                         <div class = "collapsible-body">
-                            <p class="bottom-border">tekst posta :<</p>
+                            <p class="bottom-border">Comment Section</p>
                             <ul class = "collection">
-                                <li class = "collection-item"><div class="post-author"><a href="#" class="">User1</a>posted x  days ago</div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorum, laudantium cum nobis perferendis fuga aliquam et enim hic molestiae excepturi omnis odio iure aperiam sint ipsa obcaecati voluptates voluptatum ratione!</li>
+
+                                 {% for com in cat.comments.all%}
+                                    <li class = "collection-item"><div class="post-author"><a href="#" class=""> {{ com.author }} </a>{{ com.datetime }}</div>
+                                         <br>
+                                         <font size="4" > {{ com }} </font>
+                                 {% endfor %}
+                                </li>
                                 <li class = "collection-item">
-                                    <form class="">
+                                    <form method="post">
                                         <div class="input-field">
                                             <textarea id="textarea2" class="materialize-textarea" data-length="240"></textarea>
-                                            <label for="textarea2">Comment...</label>
+                                                 <form method="post" action=".">
+                                                  {% csrf_token %}
+                                                  {{ cat.form.as_p }}
+                                                  <button type="submit">Submit</button>
+                                                </form>
                                         </div>
                                         <button class="btn waves-effect waves-light right indigo accent-3" type="submit" name="action">Submit
                                         <i class="material-icons right">send</i>
@@ -103,10 +115,10 @@
                             <div class="card">
                                 <div class="card-image">
                                     <img src="{{ cat.topic_image.url }}" width="248">
-                                    <span class="card-title post-author"><a href="#" class="">User</a>posted x  {{ cat.datetime }}</span>
+
                                 </div>
                                 <div class="card-content">
-                                    <p class="">tekst</p>
+                                    <p class=""></p>
                                 </div>
                             </div>
                         </div>

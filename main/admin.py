@@ -1,6 +1,7 @@
 from django.contrib import admin
-from .models import TopicInformation, TopicCategory
+from .models import TopicCategory, UserComments, UserProfile
 
 # Register your models here.
-admin.site.register(TopicInformation)
 admin.site.register(TopicCategory)
+admin.site.register(UserComments)
+admin.site.register(UserProfile)
