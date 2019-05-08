@@ -9,12 +9,6 @@
 
   <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
-    body{
-      background: url("{% static 'img/img1.png' %}");
-      background-repeat: repeat;
-    }
-  </style>
 
   <script>
     (function($){
@@ -32,7 +26,6 @@
 {% include "main/includes/messages.html" %}
 
   <!-- <div class="container"> -->
-  <br>
     {% block content %}
     {% endblock %}
   <!-- </div> -->
@@ -43,14 +36,13 @@
         <div class="background">
           <img src="{% static 'img/office.jpg' %}">
         </div>
-        <a href="#"><img class="circle" src="{% static 'img/yuna.jpg' %}"></a>
-        <a href="#"><span class="white-text name">Current User</span></a>
-        <a href="#"><span class="white-text email">user@email.com</span></a>
+        <a href="#"><img class="circle" src="{{ user.userprofile.profile_image.url }}"></a>
+        <a href="#"><span class="white-text name">{{ user.username }}</span></a>
+        <a href="#"><span class="white-text email">{{ user.email }}</span></a>
       </div></li>
-      <li><a class="waves-effect" href="#"><i class="material-icons">dashboard</i>#1</a></li>
-      <li><a class="waves-effect" href="#"><i class="material-icons">face</i>#2</a></li>
+      <li><a class="waves-effect" href="/edit"><i class="material-icons">settings</i>Settings</a></li>
       <li><div class="divider"></div></li>
-      <li><a class="waves-effect" href="#"><i class="material-icons">settings</i>#3</a></li>
+      <li><a class="waves-effect" href="/logout"><i class="material-icons">dashboard</i>Logout</a></li>
     </ul>
 </body>
 

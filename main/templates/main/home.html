@@ -5,59 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
      {% load static %}
-    <!-- Prism CSS -->
-    <link href="{% static "tinymce/css/prism.css" %}" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="{% static "main/css/materialize.css" %}">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
+  {% include 'main/header.html' %}
   {% include 'main/includes/messages.html' %}
     <!--NAVBAR------------------------------------------------------------------------------------------------------>
-    <!--NAVBAR-MAIN------------------------------------------------------------------------------------------------------>
-    <nav class="nav-extended indigo accent-3">
-        <div class="nav-wrapper container">
-            <a href="#!" class="brand-logo">share.it</a>
-            <ul class="right">
-                    {% if user.is_authenticated %}
-                    <li><a href="/edit">{{ user.username }}</a></li>
-                        <img src="{{ user.userprofile.profile_image.url}}" width="50">
-                        <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
-                        <li class="hide-on-small-only"><a href="/edit">Edit</a></li>
-                         <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
-                    {% else %}
-                        <li class="hide-on-small-only"><a href="/register">Register</a></li>
-                        <li class="hide-on-small-only"><a href="/login">Login</a></li>
-             {% endif %}
-            </ul>
-        </div>
-    <!--NAVBAR-SECONDARY------------------------------------------------------------------------------------------------------>
-        <div class="nav-content indigo accent-2">
-            <div class="container">
-                <ul class="tabs tabs-transparent valign-wrapper">
-                    <li><a class="btn-floating btn waves-effect waves-light red"><img src="https://images.pexels.com/photos/2037796/pexels-photo-2037796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""></a></li>
-                    <li><a class="btn-floating btn waves-effect waves-light red"><img src="https://images.pexels.com/photos/2037796/pexels-photo-2037796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""></a></li>
-                    <li><a class="btn-floating btn waves-effect waves-light red"><img src="https://images.pexels.com/photos/2037796/pexels-photo-2037796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""></a></li>
-                    <li><a class="btn-floating btn waves-effect waves-light red"><img src="https://images.pexels.com/photos/2037796/pexels-photo-2037796.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt=""></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!--NAVBAR-DROPDOWN------------------------------------------------------------------------------------------------------>
-    <ul id="dropdown1" class="dropdown-content">
-            <li class="hide-on-med-and-up indigo-text text-accent-3"><a href="/login">Login</a></li>
-            <li class="hide-on-med-and-up"><a href="/register">Register</a></li>
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li class="divider"></li>
-            <li><a href="#!">three</a></li>
-    </ul>
+
     <!--PAGE CONTENT-CONTAINER------------------------------------------------------------------------------------------------------>
     <div class="container">
     <!--TEXT-HEADER------------------------------------------------------------------------------------------------------>
