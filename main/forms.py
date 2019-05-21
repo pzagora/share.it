@@ -41,9 +41,17 @@ class AddingCommentsForm(forms.ModelForm):
         fields = ('user_comments',)
 
 
+class PostCreateForm(forms.ModelForm):
+    class Meta:
+        model = TopicCategory
+        fields = (
+            'topic_summary',
+            'topic_comment',
+            'topic_category',
+            'topic_title',
+            'topic_image'
 
-
-
+        )
 
 
 

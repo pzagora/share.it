@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, Pass
 from django.contrib.auth import logout, authenticate, login
 from django.contrib import messages
 from .models import UserComments, TopicCategory, UserProfile
-from .forms import NewUserForm, EditProfileForm, EditProfilePicture
+from .forms import NewUserForm, EditProfileForm, EditProfilePicture, PostCreateForm
 from .forms import AddingCommentsForm
 from django.views.generic import TemplateView
 from django.template import RequestContext
@@ -105,7 +105,19 @@ def edit(request):
                       context={"form": form, "update_profile_form":update_profile_form})
 
 
-
+def post_create(request):
+    if request.method == 'POST':
+        form = PostCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+    else:
+        form = PostCreateForm()
+    context = {
+        'form':form,
+    }
+    return render(request, 'main/post_create.html', context)
 
 
 
