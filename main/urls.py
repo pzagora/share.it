@@ -16,4 +16,19 @@ urlpatterns = [
     path("logout/", views.logout_request, name="logout"),
     path("login/", views.login_request, name="login"),
     url(r'^captcha/', include('captcha.urls')),
+    url(r'post_create/', views.post_create, name="post_create"),
     ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
