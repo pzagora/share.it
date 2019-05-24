@@ -10,25 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="register-body">
-   <!--NAVBAR------------------------------------------------------------------------------------------------------>
-<!--NAVBAR-MAIN------------------------------------------------------------------------------------------------------>
-    <nav class="nav-extended indigo accent-3">
-        <div class="nav-wrapper container">
-            <a href="/" class="brand-logo">share.it</a>
-            <ul class="right">
-                {% if user.is_authenticated %}
-                        <li><a href="/edit">{{ user.username }}</a></li>
-                             <li class="hide-on-small-only"><a href="/logout">Logout</a></li>
-                             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">menu</i></a></li>
-                        {% else %}
-                            <li class="hide-on-small-only"><a href="/register">Register</a></li>
-                            <li class="hide-on-small-only"><a href="/login">Login</a></li>
-                {% endif %}
-            </ul>
-        </div>
-
-    </nav>
-    <!--NAVBAR-DROPDOWN------------------------------------------------------------------------------------------------------>
+{% include 'main/header.html' %}
 {% block content %}
     <div class="container row">
         <div class="columns is-mobile">
