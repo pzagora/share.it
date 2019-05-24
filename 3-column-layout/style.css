@@ -43,6 +43,9 @@
 .update-body{
     background-image: url('https://images.pexels.com/photos/2006745/pexels-photo-2006745.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920');
 }
+.post-body{
+    background-image: url('https://images.pexels.com/photos/1533720/pexels-photo-1533720.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920');
+}
 .body-background{
     background-repeat: no-repeat;
     background-size: cover;
