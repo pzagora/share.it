@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+     {% load static %}
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+  {% include 'blog/header.html' %}
+    <!--NAVBAR------------------------------------------------------------------------------------------------------>
+
+    <!--PAGE CONTENT-CONTAINER------------------------------------------------------------------------------------------------------>
+    <div class="container">
+    <!--TEXT-HEADER------------------------------------------------------------------------------------------------------>
+        <div class="row bottom-border">
+            <div class="col s12 m12 l12">
+                <h3 class="section-header">Categories</h3>
+            </div>
+        </div>
+    <!--SINGLE ROW OF TOPICS------------------------------------------------------------------------------------------------------>
+        <div class="row">
+    <!--ONE OF 3 ROWS------------------------------------------------------------------------------------------------------>
+          <!-- https://youtu.be/LDU_Txk06tM -->
+             <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ object.topic_image.url }}" width="500">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ object.author }}</a>
+              <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+            </div>
+            <h2 class="article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+          </div>
+        </article>
+            <a href="{% url 'main:add_comment' pk=post.id %}">Leave A Comment</a>
+
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+     $(document).ready(function(){
+    $('.sidenav').sidenav();
+    $('.collapsible').collapsible();
+    $('input#input_text, textarea#textarea2').characterCounter();
+    $(".dropdown-trigger").dropdown();
+  });
+</script>
+</body>
+</html>
