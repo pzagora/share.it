@@ -32,10 +32,10 @@ def add_comment(request, pk):
     if request.method == "POST":
         form = CommentForm(request.POST)
         if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.save()
-            return redirect('main:blog-home', pk = post.id)
+            user_comments = form.save(commit=False)
+            user_comments.post = post
+            user_comments.save()
+            return redirect('main:add_comment', pk=post.id)
     else:
         form = CommentForm()
     template = 'blog/add_comment.html'

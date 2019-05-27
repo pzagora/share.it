@@ -45,7 +45,7 @@
                             <ul class = "collection">
 
                                  {% for com in post.comments.all%}
-                                    <li class = "collection-item"><div class="post-author"><a href="#" class=""> {{ com.author }} </a>{{ com.datetime }}</div>
+                                    <li class = "collection-item"><div class="post-author"> <font size="4"> {{ com.author }}</font> posted x {{ com.date_posted|date:"F d, Y" }}</div>
                                          <br>
                                          <font size="4" > {{ com }} </font>
                                  {% endfor %}

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Post(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    slug = models.SlugField(max_length=240)
     date_posted = models.DateTimeField(default=timezone.now)
     topic_image = models.ImageField(upload_to='profile_image', blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -18,7 +19,7 @@ class Post(models.Model):
 
 
 class Comments(models.Model):
-    user_comments = models.TextField(max_length=250, null=True)
+    user_comments = models.TextField(max_length=250)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     post_key = models.ForeignKey(Post, related_name='comments', default=1, verbose_name="Post",
